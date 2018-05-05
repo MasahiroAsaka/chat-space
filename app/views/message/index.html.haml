@@ -1,20 +1,31 @@
 !!! 5
 %html
-  %head
-    %title HamlTest
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'
-    = javascript_include_tag 'application', 'data-turbolinks-track'
-    = csrf_meta_tags
-
   %body
-    %header
-    %contents
-      % side-bar
-        % top
-        % main
-      % main
-        % top
-        % main
-    %footer
-      $ message
-      $ send-button
+    %div.wrapper
+      %header
+        %p チャットグループが作成されました。
+      %div.contents
+        %div.sidebar
+          %div.sidebar__above
+            %div.p#user-name seo
+            %i.fas.fa-cog{:href => ""}
+            %i.far.fa-edit{:href => ""}
+          %div.sidebar__main
+            = render :partial => "user-comments"
+        %div.main
+          %div.main__above
+            %input{:type => "submit", :id => "edit", :value => "Edit"}
+            %div.p#group-name sample
+            %div.ul#members Memeber:
+            %div.li#members seo
+            %div.li#members neko
+          %div.main__main
+            = render :partial => "member-comments"
+          %footer
+            %form{:action => "", :method => "post"}
+              %label{:for => "type_message", :accesskey => ""}
+                %span
+                  %input{:type => "text", :name => "type_message", :id => "text", :placeholder => "type a message"}
+                  %i.far.fa-image
+                %input{:type => "file", :name => "upload-data", :id => "upload-data"}
+              %input{:type => "button", :id => "send", :value => "Send"}
