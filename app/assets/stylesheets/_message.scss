@@ -14,76 +14,73 @@
     .contents{
       height: calc(100% - 28px);
       width: 100%;
-      .sidebar{
+      .user{
         height: 100%;
         width: 300px;
         float: left;
-        &__above{
+        &-contents{
           background: #253141;
           height: 96px;
           width: 260px;
           display: table-cell;
           vertical-align: middle;
           padding: 0 20px 0;
-          .p#user-name{
+          p.user-contents__name{
             color: $sidebarUserFontColor;
             font-size: 16px;
             font-style: bold;
             float:left;
           }
-          i.fas.fa-cog{
-            color: white;
-            float:right;
-          }
-          i.far.fa-edit{
+          i{
             color: white;
             float: right;
           }
         }
-        &__main{
+        .user-message{
           background: #2f3e51;
           height: calc(100% - 96px);
           width: 260px;
           padding: 0 20px 0;
-          .p#title-of-user{
+          p.title-of-user{
             color: $sidebarUserFontColor;
             font-size: 15px;
             padding: 20px 0 5px;
           }
-          .p#message-of-user{
+          p.message-of-user{
             color: $sidebarUserFontColor;
             font-size: 11px;
             margin-bottom: 40px;
           }
         }
       }
-      .main{
+      .group{
         height: 100%;
         width: calc(100vw - 300px);
         float: left;
-        &__above{
+        &-contents{
           height: 96px;
           width: calc(100% - 80px);
           border: 0.5px solid #eeeeee;
           padding: 0 40px 0;
-          .p#group-name{
+          p.group-name{
             color: #333333;
             font-size: 20px;
             padding: 35px 0 15px;
           }
-          .ul#members{
+          ul.members{
             color: #999999;
             font-size: 12px;
             margin: 0 10px 15px 0;
             float: left;
           }
-          .li#members{
+          li.members{
             color: #999999;
             font-size: 12px;
             margin: 0 10px 15px 0;
             float: left;
+            list-style-type: none
           }
-          input#edit{
+          input.group-contents__edit{
             height: 40px;
             width: 60px;
             color: $mainBlueColor;
@@ -93,22 +90,22 @@
             float: right;
           }
         }
-        &__main{
+        &-message{
           height: calc(100% - 96px - 90px);
           width: calc(100% - 80px);
           padding: 0 40px 0;
-          .p#member-name{
+          p.member-name{
             color: #434A54;
             font-size: 16px;
             font-style: bold;
             padding: 46px 0 10px;
           }
-          .p#message-created-time{
+          p.message-created-time{
             color: #999999;
             font-size: 12px;
             margin-bottom: 10px;
           }
-          .p#message-in-member{
+          p.message-in-member{
             color: #434A54;
             font-size: 14px;
             margin-bottom: 40px;
@@ -119,26 +116,27 @@
           height: 90px;
           width: calc(100% - 80px);
           padding:0 40px 0;
-          form{
+          form.message{
             width: 100%;
             padding: 20px 0 20px;
-            label{
+            label.upload{
               position: relative;
-              input#text{
+              input.upload__text{
                 height: 50px;
                 width: calc(100% - 80px - 40px - 20px);
                 color: #434A54;
                 font-size: 16px;
                 padding-left: 10px;
+                overflow: scroll;
                 }
-              i.far.fa-image{
+              i{
                 right: 10px;
                 padding: 20px 0 20px;
                 display: inline-block;
                 overflow: hidden;
                 position: absolute;
               }
-              input#upload-data{
+              input.upload__file{
                 width: 10px;
                 opacity: 0;
                 right: 0;
@@ -148,7 +146,7 @@
                 right: 10px;
               }
             }
-            input#send{
+            input.send{
               background: $mainBlueColor;
               height: 55px;
               width: 100px;

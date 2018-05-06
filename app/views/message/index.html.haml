@@ -1,31 +1,30 @@
 !!! 5
 %html
   %body
-    %div.wrapper
+    .wrapper
       %header
         %p チャットグループが作成されました。
-      %div.contents
-        %div.sidebar
-          %div.sidebar__above
-            %div.p#user-name seo
-            %i.fas.fa-cog{:href => ""}
-            %i.far.fa-edit{:href => ""}
-          %div.sidebar__main
-            = render :partial => "user-comments"
-        %div.main
-          %div.main__above
-            %input{:type => "submit", :id => "edit", :value => "Edit"}
-            %div.p#group-name sample
-            %div.ul#members Memeber:
-            %div.li#members seo
-            %div.li#members neko
-          %div.main__main
-            = render :partial => "member-comments"
+      .contents
+        .user
+          .user-contents
+            %p.user-contents__name seo
+            %a.user-contents__create-group{:href => "#"}
+              = fa_icon "cog"
+            %a.user-contents__edit{:href => "#"}
+              = fa_icon "edit"
+          .user-message
+            = render "user"
+        .group
+          .group-contents
+            %input.group-contents__edit{:type => "submit", :id => "edit", :value => "Edit"}
+            = render "group"
+          .group-message
+            = render "member"
           %footer
-            %form{:action => "", :method => "post"}
-              %label{:for => "type_message", :accesskey => ""}
-                %span
-                  %input{:type => "text", :name => "type_message", :id => "text", :placeholder => "type a message"}
-                  %i.far.fa-image
-                %input{:type => "file", :name => "upload-data", :id => "upload-data"}
-              %input{:type => "button", :id => "send", :value => "Send"}
+            %form.message{:action => "", :method => "post"}
+              %label.upload{:for => "type_message", :accesskey => ""}
+                %span.upload__text-file
+                  %input.upload__text{:type => "text", :class => "upload__text", :name => "type_text", :id => "text", :placeholder => "type a message"}
+                  = fa_icon "image"
+                %input.upload__file{:type => "file", :class => "upload__file", :name => "type_message", :id => "file"}
+              %input.send{:type => "button", :id => "send", :value => "Send"}
