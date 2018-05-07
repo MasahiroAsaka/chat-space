@@ -25,15 +25,18 @@
           display: table-cell;
           vertical-align: middle;
           padding: 0 20px 0;
-          p.user-contents__name{
+          h3.user-contents__name{
             color: $sidebarUserFontColor;
             font-size: 16px;
             font-style: bold;
             float:left;
           }
+          li{
+            list-style-type: none
+          }
           i{
             color: white;
-            float: right;
+              float: right;
           }
         }
         .user-message{
