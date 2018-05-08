@@ -44,12 +44,12 @@
           height: calc(100% - 96px);
           width: 260px;
           padding: 0 20px 0;
-          p.title-of-user{
+          .group__name{
             color: $sidebarUserFontColor;
             font-size: 15px;
             padding: 20px 0 5px;
           }
-          p.message-of-user{
+          .group__message{
             color: $sidebarUserFontColor;
             font-size: 11px;
             margin-bottom: 40px;
