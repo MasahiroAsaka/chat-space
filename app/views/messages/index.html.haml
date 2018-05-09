@@ -20,9 +20,9 @@
         .group
           .group-contents
             %input.group-contents__edit{type: "submit", id: "edit", value: "Edit"}
-            = render "group"
+            = render "group", collection: @group
           .group-message
-            = render "member"
+            = render partial: 'member', collection: @messages
           %footer
             .form
               = form_for [@group, @message] do |f|

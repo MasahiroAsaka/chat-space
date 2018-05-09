@@ -1,4 +1,4 @@
-class MessageController < ApplicationController
+class MessagesController < ApplicationController
   before_action :set_group
 
   def index
@@ -17,9 +17,9 @@ class MessageController < ApplicationController
     end
   end
 
-  def show
-    @message = Message.find(set_message)
-  end
+  # def show
+  #   @message = Message.find(set_message)
+  # end
 
  private
   def message_params

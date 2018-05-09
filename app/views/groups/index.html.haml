@@ -16,14 +16,14 @@
               =link_to edit_user_path(current_user) do
                 = fa_icon "edit"
           .user-message
-            = render "message/user"
+            = render "messages/user"
             / = render "user"
         .group
           .group-contents
             %input.group-contents__edit{type: "submit", id: "edit", value: "Edit"}
-            = render "message/group"
+            = render "messages/group" collection: @group
           .group-message
-            = render "message/member"
+            = render partial: 'messages/member', collection: @messages
           %footer
             %form.message{action: "", method: "post"}
               %label.upload{for: "type_message", accesskey: ""}
