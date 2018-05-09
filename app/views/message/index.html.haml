@@ -24,10 +24,18 @@
           .group-message
             = render "member"
           %footer
-            %form.message{action: "", method: "post"}
-              %label.upload{for: "type_message", accesskey: ""}
-                %span.upload__text-file
-                  %input.upload__text{type: "text", class: "upload__text", name: "type_text", id: "text", placeholder: "type a message"}
-                  = fa_icon "image"
-                %input.upload__file{type: "file", class: "upload__file", name: "type_message", id: "file"}
-              %input.send{type: "button", id: "send", value: "Send"}
+            .form
+              = form_for [@group, @message] do |f|
+                = f.text_field :text, class: 'form__message', placeholder: 'type a message.'
+                .form__mark
+                  = f.label :image, class: 'form__mask__image' do
+                    = fa_icon "image", class: 'icon'
+                    = f.file_field :image, class: 'hidden'
+                = f.submit 'send', class: 'form__submit'
+            / %form.message{action: "", method: "post"}
+            /   %label.upload{for: "type_message", accesskey: ""}
+            /     %span.upload__text-file
+            /       %input.upload__text{type: "text", class: "upload__text", name: "type_text", id: "text", placeholder: "type a message"}
+            /       = fa_icon "image"
+            /     %input.upload__file{type: "file", class: "upload__file", name: "type_message", id: "file"}
+            /   %input.send{type: "button", id: "send", value: "Send"}
