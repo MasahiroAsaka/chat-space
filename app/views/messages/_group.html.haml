@@ -1,0 +1,21 @@
+.group-detail
+  %p.group-name
+    = @group.name
+  %ul.members Members
+  %li.members
+
+
+/ .group-detail
+/   %p.group-name sample
+/   %ul.members Memeber:
+/   %li.members seo
+/   %li.members neko
+
+/ .user_comments
+/   - current_user.groups.each do |group|
+/     .group
+/       = link_to group_messages_path(group) do
+/         .group__name
+/           = group.name
+/         .group__message
+/           = group.show_last_message
