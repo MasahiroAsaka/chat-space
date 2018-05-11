@@ -32,6 +32,7 @@
 |------|----|-------|
 |name|string|null: false, unique: true, index: true|
 
+
 ### Association
 - has_many :members
 - has_many :messages
