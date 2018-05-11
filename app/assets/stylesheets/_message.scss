@@ -1,0 +1,163 @@
+// Place all the styles related to the message controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+  .wrapper{
+    height: 100vh;
+    width: 100vw;
+    // header{
+    //   background: $mainBlueColor;
+    //   height: 28px;
+    //   width: 100%;
+    //   color: #FFFFFF;
+    //   text-align: center;
+    // }
+    .contents{
+      height: 100%;
+      width: 100%;
+      .user{
+        height: 100%;
+        width: 300px;
+        float: left;
+        &-contents{
+          background: #253141;
+          height: 96px;
+          width: 260px;
+          display: table-cell;
+          vertical-align: middle;
+          padding: 0 20px 0;
+          h3.user-contents__name{
+            color: $sidebarUserFontColor;
+            font-size: 16px;
+            font-style: bold;
+            float:left;
+          }
+          li{
+            list-style-type: none
+          }
+          i{
+            color: white;
+              float: right;
+          }
+        }
+        .user-message{
+          background: #2f3e51;
+          height: calc(100% - 96px);
+          width: 260px;
+          padding: 0 20px 0;
+          .group__name{
+            color: $sidebarUserFontColor;
+            font-size: 15px;
+            padding: 20px 0 5px;
+          }
+          .group__message{
+            color: $sidebarUserFontColor;
+            font-size: 11px;
+            margin-bottom: 40px;
+          }
+        }
+      }
+      .group{
+        height: 100%;
+        width: calc(100vw - 300px);
+        float: left;
+        &-contents{
+          height: 96px;
+          width: calc(100% - 80px);
+          border: 0.5px solid #eeeeee;
+          padding: 0 40px 0;
+          p.group-name{
+            color: #333333;
+            font-size: 20px;
+            padding: 35px 0 15px;
+          }
+          ul.members{
+            color: #999999;
+            font-size: 12px;
+            margin: 0 10px 15px 0;
+            float: left;
+          }
+          li.members{
+            color: #999999;
+            font-size: 12px;
+            margin: 0 10px 15px 0;
+            float: left;
+            list-style-type: none
+          }
+          input.group-contents__edit{
+            height: 40px;
+            width: 60px;
+            color: $mainBlueColor;
+            text-align: center;
+            border: 1px solid $mainBlueColor;
+            margin: 28px 0  0;
+            float: right;
+          }
+        }
+        &-message{
+          height: calc(100% - 96px - 90px);
+          width: calc(100% - 80px);
+          padding: 0 40px 0;
+          p.member-name{
+            color: #434A54;
+            font-size: 16px;
+            font-style: bold;
+            padding: 46px 0 10px;
+          }
+          p.message-created-time{
+            color: #999999;
+            font-size: 12px;
+            margin-bottom: 10px;
+          }
+          p.message-in-member{
+            color: #434A54;
+            font-size: 14px;
+            margin-bottom: 40px;
+          }
+        }
+        footer{
+          background: #AAAAAA;
+          height: 90px;
+          width: calc(100% - 80px);
+          padding:0 40px 0;
+          form.message{
+            width: 100%;
+            padding: 20px 0 20px;
+            label.upload{
+              position: relative;
+              input.upload__text{
+                height: 50px;
+                width: calc(100% - 80px - 40px - 20px);
+                color: #434A54;
+                font-size: 16px;
+                padding-left: 10px;
+                overflow: scroll;
+                }
+              i{
+                right: 10px;
+                padding: 20px 0 20px;
+                display: inline-block;
+                overflow: hidden;
+                position: absolute;
+              }
+              input.upload__file{
+                width: 10px;
+                opacity: 0;
+                right: 0;
+                top: 0;
+                margin: 0;
+                position: absolute;
+                right: 10px;
+              }
+            }
+            input.send{
+              background: $mainBlueColor;
+              height: 55px;
+              width: 100px;
+              color: white;
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
