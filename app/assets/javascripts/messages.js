@@ -1,13 +1,24 @@
 $(function(){
   function buildHTML(message){
-  var html =
-`<div class="message">
-  <p class="upper-message__user-name">${message.name}</p>
-  <p class="upper-message__date">${message.created_at}</p>
-  <p class="lower-message__content">${message.text}</p>
-  <img class="image" src=${message.image.url} alt="">
-</div>`
-return html;
+    var image = message.image
+    if (image == null) {
+    var html =
+    `<div class="message">
+      <p class="upper-message__user-name">${message.name}</p>
+      <p class="upper-message__date">${message.created_at}</p>
+      <p class="lower-message__content">${message.text}</p>
+    </div>`
+    return html;
+    }else{
+      var html =
+    `<div class="message">
+      <p class="upper-message__user-name">${message.name}</p>
+      <p class="upper-message__date">${message.created_at}</p>
+      <p class="lower-message__content">${message.text}</p>
+      <img class="image" src=${message.image} alt="">
+    </div>`
+    return html;
+    }
   }
   $('#the-form').on('submit', function(event){
     event.preventDefault();
@@ -32,5 +43,5 @@ return html;
       alert('error');
       $(".form__submit").prop("disabled", false);
     });
-  })
+  });
 });
