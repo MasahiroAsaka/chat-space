@@ -1,15 +1,13 @@
 $(function(){
   function buildHTML(message){
   var html =
-`
-<div class="message">
-<p class="upper-message__user-name">${message.name}</p>
-<p class="upper-message__date">${message.created_at}</p>
-<p class="lower-message__content">${message.text}</p>
-<img class="image" src=${message.image.url} alt="">
-</div>
-`
-    return html;
+`<div class="message">
+  <p class="upper-message__user-name">${message.name}</p>
+  <p class="upper-message__date">${message.created_at}</p>
+  <p class="lower-message__content">${message.text}</p>
+  <img class="image" src=${message.image.url} alt="">
+</div>`
+return html;
   }
   $('#the-form').on('submit', function(event){
     event.preventDefault();
