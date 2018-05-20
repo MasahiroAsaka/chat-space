@@ -4,13 +4,6 @@
   .wrapper{
     height: 100vh;
     width: 100vw;
-    // header{
-    //   background: $mainBlueColor;
-    //   height: 28px;
-    //   width: 100%;
-    //   color: #FFFFFF;
-    //   text-align: center;
-    // }
     .contents{
       height: 100%;
       width: 100%;
@@ -36,7 +29,7 @@
           }
           i{
             color: white;
-              float: right;
+            float: right;
           }
         }
         .user-message{
@@ -44,15 +37,19 @@
           height: calc(100% - 96px);
           width: 260px;
           padding: 0 20px 0;
-          .group__name{
+          p.group__name{
+            width: 260px;
             color: $sidebarUserFontColor;
             font-size: 15px;
             padding: 20px 0 5px;
+            word-wrap: break-word;
           }
-          .group__message{
+          p.group__message{
+            width: 260px;
             color: $sidebarUserFontColor;
             font-size: 11px;
             margin-bottom: 40px;
+            word-wrap: break-word;
           }
         }
       }
@@ -65,7 +62,7 @@
           width: calc(100% - 80px);
           border: 0.5px solid #eeeeee;
           padding: 0 40px 0;
-          p.group-name{
+          .group-name{
             color: #333333;
             font-size: 20px;
             padding: 35px 0 15px;
@@ -73,17 +70,17 @@
           ul.members{
             color: #999999;
             font-size: 12px;
-            margin: 0 10px 15px 0;
+            margin-right: 10px;
             float: left;
           }
           li.members{
             color: #999999;
             font-size: 12px;
-            margin: 0 10px 15px 0;
+            margin-right: 10px;
             float: left;
             list-style-type: none
           }
-          input.group-contents__edit{
+          .group-contents__edit{
             height: 40px;
             width: 60px;
             color: $mainBlueColor;
@@ -91,67 +88,79 @@
             border: 1px solid $mainBlueColor;
             margin: 28px 0  0;
             float: right;
+            #group-contents__edit{
+              color: $mainBlueColor;
+              text-decoration: none;
+              vertical-align: middle;
+              line-height: 40px;
+            }
           }
         }
         &-message{
-          height: calc(100% - 96px - 90px);
-          width: calc(100% - 80px);
-          padding: 0 40px 0;
-          p.member-name{
-            color: #434A54;
-            font-size: 16px;
-            font-style: bold;
-            padding: 46px 0 10px;
-          }
-          p.message-created-time{
-            color: #999999;
-            font-size: 12px;
-            margin-bottom: 10px;
-          }
-          p.message-in-member{
-            color: #434A54;
-            font-size: 14px;
-            margin-bottom: 40px;
+          height: calc(100% - 99px - 90px);
+          width: 100%;
+          overflow: auto;
+          .message{
+             margin: 46px 40px 40px;
+            p.upper-message__user-name{
+              color: #434A54;
+              font-size: 16px;
+              margin-bottom: 10px;
+              font-weight: bold;
+              float: left;
+            }
+            p.upper-message__date{
+              color: #999999;
+              font-size: 12px;
+              margin-bottom: 10px;
+              padding-left: 10px;
+              float: left;
+            }
+            p.lower-message__content{
+              color: #434A54;
+              font-size: 14px;
+              margin-top: 10px;
+              clear: both;
+            }
+            .lower-message__image{
+              margin: 0 auto;
+            }
           }
         }
         footer{
-          background: #AAAAAA;
-          height: 90px;
+          background: #DDDDDD;
           width: calc(100% - 80px);
+          height: 90px;
           padding:0 40px 0;
-          form.message{
-            width: 100%;
+          #the-form{
+            height: 50px;
             padding: 20px 0 20px;
-            label.upload{
-              position: relative;
-              input.upload__text{
-                height: 50px;
-                width: calc(100% - 80px - 40px - 20px);
-                color: #434A54;
-                font-size: 16px;
-                padding-left: 10px;
-                overflow: scroll;
+            position: relative;
+            #message_text{
+              height: 50px;
+              width: calc(100% - 40px - 100px);
+              color: #434A54;
+              font-size: 16px;
+              padding-left: 10px;
+              overflow: scroll;
+              position: absolute;
+            }
+            .form__mark{
+              position: absolute;
+              right: 130px;
+              .form__mask__image{
+                i{
+                margin: 20px 10px 20px 0;
                 }
-              i{
-                right: 10px;
-                padding: 20px 0 20px;
-                display: inline-block;
-                overflow: hidden;
-                position: absolute;
-              }
-              input.upload__file{
-                width: 10px;
-                opacity: 0;
-                right: 0;
-                top: 0;
-                margin: 0;
-                position: absolute;
-                right: 10px;
+                #message_image{
+                  display: none;
+                  background: green;
+                }
               }
             }
-            input.send{
+            .form__submit{
               background: $mainBlueColor;
-              height: 55px;
+              height: 50px;
               width: 100px;
               color: white;
               float: right;
