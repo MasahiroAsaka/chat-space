@@ -1,24 +1,23 @@
 $(function(){
   function buildHTML(message){
+    var html_common =
+    `<p class="upper-message__user-name">${message.name}</p>
+    <p class="upper-message__date">${message.created_at}</p>
+    <p class="lower-message__content">${message.text}</p>`
     var image = message.image
     if (image == null) {
-    var html =
-    `<div class="message">
-      <p class="upper-message__user-name">${message.name}</p>
-      <p class="upper-message__date">${message.created_at}</p>
-      <p class="lower-message__content">${message.text}</p>
-    </div>`
-    return html;
+      var html_without_image =
+      `<div class="message">
+      ${html_common}
+      </div>`
+    return html_without_image;
     }else{
-      var html =
-    `<div class="message">
-      <p class="upper-message__user-name">${message.name}</p>
-      <p class="upper-message__date">${message.created_at}</p>
-      <p class="lower-message__content">${message.text}</p>
+      var html_with_image =
+      `<div class="message">
+      ${html_common}
       <img class="image" src=${message.image} alt="">
-    </div>`
-    return html;
-    }
+      </div>`
+    return html_with_image;}
   }
   $('#the-form').on('submit', function(event){
     event.preventDefault();
