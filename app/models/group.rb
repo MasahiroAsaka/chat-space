@@ -8,8 +8,8 @@ class Group < ApplicationRecord
     last_message = messages.last
     if last_message.present?
       if last_message.image.present? && last_message.text.present?
-          last_message.text + ' 画像も投稿されています。'
-      else last_message.present?
+        last_message.text + ' 画像も投稿されています。'
+      else
         last_message.text? ? last_message.text : '画像が投稿されています.'
       end
     else

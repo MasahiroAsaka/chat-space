@@ -19,8 +19,8 @@ $(function(){
       </div>`
     return html_with_image;}
   }
-  $('#the-form').on('submit', function(e){
-    e.preventDefault();
+  $('#the-form').on('submit', function(event){
+    event.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
     $.ajax({
