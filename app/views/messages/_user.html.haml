@@ -1,21 +1,8 @@
-/ .message
-/   .upper-message__user-name
-/     = @message.user.name
-/   .upper-message__date
-/     = format_posted_time(message.created_at)
-/   .lower-message
-/     - if @message.text.present?
-/       %p.lower-message__content
-/         = text.content
-/     = image_tag message.image.url, class: 'lower-message__image' if @message.image.present?
-
 .user_comments
-  / %p.title-of-user sample
-  / %p.message-of-user Good bye world!
   - current_user.groups.each do |group|
     .group
       = link_to group_messages_path(group) do
-        .group__name
+        %p.group__name
           = group.name
-        .group__message
+        %p.group__message
           = group.show_last_message

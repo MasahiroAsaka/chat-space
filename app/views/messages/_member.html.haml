@@ -1,10 +1,10 @@
-.message
-  .upper-message__user-name
-    = message.user.name
-  .upper-message__date
-    = format_posted_time(message.created_at)
-  .lower-message
-    - if message.text.present?
+- if @messages
+  - @messages.each do |message|
+    .message
+      %p.upper-message__user-name
+        = message.user.name
+      %p.upper-message__date
+        = message.created_at.to_s(:default)
       %p.lower-message__content
-        = text.content
-    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+        = message.text
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.url.present?
