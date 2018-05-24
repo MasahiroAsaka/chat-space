@@ -51,12 +51,11 @@ $(function() {
 
   $("#user-search-result").on("click", "#add-user-button", function(){
     var user = $(this);
-    $(this).parent().remove();
+    $(user).parent().remove();
     addMember(user);
     });
 
-  $(".chat-group-user").on("click", ".user-search-remove", function(){
-    console.log("click!");
+  $(document).on("click", ".user-search-remove", function(){
     $(this).parent().remove();
   });
 });
