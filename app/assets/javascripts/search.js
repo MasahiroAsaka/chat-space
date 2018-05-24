@@ -13,7 +13,7 @@ $(function() {
   }
 
   function addMember(user){
-    var add_member = $('.add_member');
+    var add_member = $(".add_member");
     var user_name = user.data('user-name');
     var user_id = user.data('user-id');
     var html =
@@ -55,7 +55,8 @@ $(function() {
     addMember(user);
     });
 
-  $(document).on("click", ".user-search-remove", function(){
+  $(".chat-group-user").on("click", ".user-search-remove", function(){
+    console.log("click!");
     $(this).parent().remove();
   });
 });
