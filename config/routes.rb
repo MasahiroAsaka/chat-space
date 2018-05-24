@@ -7,3 +7,5 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 end
+
+# search_products GET    /products/search(.:format)                  products#search
