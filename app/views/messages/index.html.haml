@@ -21,7 +21,7 @@
               %a{href: "/groups/#{@group.id}/edit", id: "group-contents__edit" } Edit
             = render "group"
           .group-message
-            = render partial: "member"
+            = render partial: "member", collection: @messages, as: :message
           %footer
             .form
               = form_for [@group, @message],html: {id: 'the-form', class: 'the-form'} do |f|

@@ -1,24 +1,22 @@
 $(function(){
+
   function buildHTML(message){
-    var html_common =
-    `<p class="upper-message__user-name">${message.name}</p>
-    <p class="upper-message__date">${message.created_at}</p>
-    <p class="lower-message__content">${message.text}</p>`
     var image = message.image
-    if (image == null) {
-      var html_without_image =
-      `<div class="message">
-      ${html_common}
-      </div>`
-    return html_without_image;
+    if (image) {
+      insertImage = `<img class="lower-message__image" src="${image}">`;
     }else{
-      var html_with_image =
-      `<div class="message">
-      ${html_common}
-      <img class="lower-message__imag" src=${message.image} alt="">
-      </div>`
-    return html_with_image;}
-  }
+      insertImage = '';
+    }
+    var html = `
+      <div class="message" data-message-id="${message.id}">
+        <p class="upper-message__user-name">${message.name}</p>
+        <p class="upper-message__date">${message.created_at}</p>
+        <p class="lower-message__content">${message.text}</p>
+        ${insertImage}
+      </div>`;
+    return html
+    }
+
   $('#the-form').on('submit', function(event){
     event.preventDefault();
     var formData = new FormData(this);
@@ -43,4 +41,32 @@ $(function(){
       $(".form__submit").prop("disabled", false);
     });
   });
+
+    var interval = setInterval(function() {
+    if (location.pathname.match(/\/groups\/\d+\/messages/)) {
+      var messageId = ($('.message').data()) ? messageId = $('.message:last').data('message-id'): messageId = 0
+      $.ajax({
+        url: location.href,
+        type: 'GET',
+        data: {message: {id: messageId}},
+        dataType: 'json',
+      })
+      .done(function(json){
+        var insertHTML = '';
+        json.messages.forEach(function(message){
+          if (message.id > messageId){
+          insertHTML += buildHTML(message);
+        }
+        });
+        $('.group-message').append(insertHTML);
+        $('.group-message').animate({ scrollTop: $('.group-message').get(0).scrollHeight },'fast');
+      })
+      .fail(function(data){
+        alert('自動更新に失敗しました');
+      });
+    } else {
+      clearInterval(interval);
+    };
+  } , 5000 );
+
 });
