@@ -67,6 +67,6 @@ $(function(){
     } else {
       clearInterval(interval);
     };
-  } , 2000 );
+  } , 5000 );
 
 });
