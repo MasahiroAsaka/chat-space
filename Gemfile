@@ -64,6 +64,9 @@ gem 'devise'
 gem 'mini_magick'
 gem 'carrierwave'
 
+group :production do
+  gem 'unicorn'
+end
 # group :test do
 #   gem 'faker'
 # end
