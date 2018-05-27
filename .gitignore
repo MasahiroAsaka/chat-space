@@ -18,3 +18,4 @@
 
 # Ignore Images Under Public folder
 public/
+config/secrets.yml
