@@ -21,10 +21,10 @@ set :linked_files, %w{ config/secrets.yml }
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-  invoke 'unicorn:restart'
+    invoke 'unicorn:restart'
   end
 
-  desc 'upload secret.yml'
+  desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
